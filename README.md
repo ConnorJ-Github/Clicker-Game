@@ -14,7 +14,7 @@ Requires Pygame CE + Python to Run
 
  -Power Boosts can be bought for 500 coins.
 
-** Functionality**
+**Functionality**
 
 - Coins are gained once the progress bar is filled.
 
