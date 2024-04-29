@@ -4,8 +4,10 @@ import button
 #Bugs List
 
 #coin value overwrites upon starting a different button
+
 #Button overlapping (As the buttons are circles and the button selection area are rect. The selection area is larger than needed)
 #Bug caused by issue above - Buttons will unlock due to proxy when funds are met.
+
 #Automatic buttons don't work sometimes.
 #Buttons increasing in speed upon unlocking a new button
 
@@ -75,7 +77,7 @@ class World:
         self.unlock_100 = False
         self.unlock_250 = False
 
-        self.coins = 0 #Playeres current coins.
+        self.coins = 100 #Playeres current coins.
         self.value = 0 #The values that coins have
 
 
@@ -149,23 +151,23 @@ class World:
         #Unlock Buttons
 
         if self.unlock_20 == False:
-            if self.lock_20.draw(self.display_surface) and self.coins == 20:
+            if self.lock_20.draw(self.display_surface) and self.coins >= 20:
                 self.unlock_20 = True
                 self.coins -= 20
 
         
         if self.unlock_50 == False:
-            if self.lock_50.draw(self.display_surface) and self.coins == 50:
+            if self.lock_50.draw(self.display_surface) and self.coins >= 50:
                 self.unlock_50 = True
                 self.coins -= 50
 
         if self.unlock_100 == False:
-            if self.lock_100.draw(self.display_surface) and self.coins == 100:
+            if self.lock_100.draw(self.display_surface) and self.coins >= 100:
                 self.unlock_100 = True
                 self.coins -= 100
 
         if self.unlock_250 == False:
-            if self.lock_250.draw(self.display_surface) and self.coins == 250:
+            if self.lock_250.draw(self.display_surface) and self.coins >= 250:
                 self.unlock_250 = True
                 self.coins -= 250
 
@@ -192,14 +194,13 @@ class World:
 
         #power up buttons
 
-        if self.power_one.draw(self.display_surface):
-            if self.coins >= 500:
-                self.red_speed = self.red_speed * 2
-                self.blue_speed = self.blue_length * 2
-                self.black_speed = self.black_speed * 2
-                self.green_speed = self.green_speed * 2
-                self.yellow_speed = self.yellow_speed * 2
-                self.coins -= 500
+        if self.power_one.draw(self.display_surface) and self.coins >= 500:
+            self.red_speed = self.red_speed * 2
+            self.blue_speed = self.blue_length * 2
+            self.black_speed = self.black_speed * 2
+            self.green_speed = self.green_speed * 2
+            self.yellow_speed = self.yellow_speed * 2
+            self.coins -= 500
 
         if self.power_two.draw(self.display_surface):
             if self.coins >= 1:
