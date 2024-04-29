@@ -68,6 +68,12 @@ blue_auto = pygame.transform.scale(blue_auto, (50,50))
 yellow_auto = pygame.image.load('Assets\Auto_Buttons\yellow_auto.png')
 yellow_auto = pygame.transform.scale(yellow_auto, (50,50))
 
+#power up
+power_one = pygame.image.load('Assets\Power_ups\power_one.png')
+power_one = pygame.transform.scale(power_one, (50,50))
+
+power_two = pygame.image.load('Assets\Power_ups\power_two.png')
+power_two = pygame.transform.scale(power_two, (50,50))
 
 
 #Sounds

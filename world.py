@@ -26,6 +26,17 @@ class World:
         self.auto_blue = button.Button(210, 600, blue_auto)
         self.auto_yellow = button.Button(270, 600, yellow_auto)
 
+        self.automatic_black = False
+        self.automatic_green = False
+        self.automatic_red = False
+        self.automatic_blue = False
+        self.automatic_yellow = False
+
+        #Power up Buttons
+
+        self.power_one = button.Button(30, 730, power_one)
+        self.power_two = button.Button(90, 730, power_two)
+
 
         #Progress bar values.
         self.draw_black = False
@@ -92,10 +103,10 @@ class World:
         self.display_surface.blit(score_text, (675,25))
 
         #Titles
-        auto_text = default_font.render('Auto Upgrade - 100 coins Each', True, 'Black')
+        auto_text = default_font.render('Auto Upgrade - 1000 Each', True, 'Black')
         self.display_surface.blit(auto_text,(30,550))
 
-        power_text = default_font.render('Power Up - 200 coins Each', True, 'Black')
+        power_text = default_font.render('Power Up - 500 Each', True, 'Black')
         self.display_surface.blit(power_text,(30,670))
 
         #Buttons
@@ -159,9 +170,11 @@ class World:
 
         if self.auto_black.draw(self.display_surface):
             pass
+        
 
         if self.auto_green.draw(self.display_surface):
             pass
+
 
         if self.auto_red.draw(self.display_surface):
             pass
@@ -171,4 +184,21 @@ class World:
 
         if self.auto_yellow.draw(self.display_surface):
             pass
+
+
+        #power up buttons
+
+        if self.power_one.draw(self.display_surface):
+            if self.coins >= 500:
+                self.red_speed = self.red_speed * 2
+                self.blue_speed = self.blue_length * 2
+                self.black_speed = self.black_speed * 2
+                self.green_speed = self.green_speed * 2
+                self.yellow_speed = self.yellow_speed * 2
+                self.coins -= 500
+
+        if self.power_two.draw(self.display_surface):
+            if self.coins >= 1:
+                self.coins *= 2
+                self.coins -= 500
 
