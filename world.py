@@ -5,6 +5,7 @@ import button
 
 #coin value overwrites upon starting a different button
 #Button overlapping (As the buttons are circles and the button selection area are rect. The selection area is larger than needed)
+#Bug caused by issue above - Buttons will unlock due to proxy when funds are met.
 #Automatic buttons don't work sometimes.
 #Buttons increasing in speed upon unlocking a new button
 
@@ -148,29 +149,25 @@ class World:
         #Unlock Buttons
 
         if self.unlock_20 == False:
-            if self.lock_20.draw(self.display_surface):
-                if self.coins >= 20:
-                    self.unlock_20 = True
-                    self.coins -= 20
+            if self.lock_20.draw(self.display_surface) and self.coins == 20:
+                self.unlock_20 = True
+                self.coins -= 20
 
         
         if self.unlock_50 == False:
-            if self.lock_50.draw(self.display_surface):
-                if self.coins >= 50:
-                    self.unlock_50 = True
-                    self.coins -= 50
+            if self.lock_50.draw(self.display_surface) and self.coins == 50:
+                self.unlock_50 = True
+                self.coins -= 50
 
         if self.unlock_100 == False:
-            if self.lock_100.draw(self.display_surface):
-                if self.coins >= 100:
-                    self.unlock_100 = True
-                    self.coins -= 100
+            if self.lock_100.draw(self.display_surface) and self.coins == 100:
+                self.unlock_100 = True
+                self.coins -= 100
 
         if self.unlock_250 == False:
-            if self.lock_250.draw(self.display_surface):
-                if self.coins >= 250:
-                    self.unlock_250 = True
-                    self.coins -= 250
+            if self.lock_250.draw(self.display_surface) and self.coins == 250:
+                self.unlock_250 = True
+                self.coins -= 250
 
 
         #auto Buttons
