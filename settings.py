@@ -3,7 +3,7 @@ from pygame.math import Vector2 as vector
 
 FPS = 60 #Window FPS
 
-WIDTH, HEIGHT = 1200, 800 #Controls the width and height on the game window.
+WIDTH, HEIGHT = 800, 800 #Controls the width and height on the game window.
 
 
 
@@ -50,3 +50,26 @@ lock_100 = pygame.transform.scale(lock_100, (500,280))
 lock_250 = pygame.image.load('Assets\Locks\Lock_250.png')
 lock_250 = pygame.transform.scale(lock_250, (500,280))
 
+
+#Auto Images
+white_auto = pygame.image.load('Assets\Auto_Buttons\white_auto.png')
+white_auto = pygame.transform.scale(white_auto, (50,50))
+
+
+green_auto = pygame.image.load('Assets\Auto_Buttons\green_auto.png')
+green_auto = pygame.transform.scale(green_auto, (50,50))
+
+red_auto = pygame.image.load('Assets\Auto_Buttons\cred_auto.png')
+red_auto = pygame.transform.scale(red_auto, (50,50))
+
+blue_auto = pygame.image.load('Assets\Auto_Buttons\cblue_auto.png')
+blue_auto = pygame.transform.scale(blue_auto, (50,50))
+
+yellow_auto = pygame.image.load('Assets\Auto_Buttons\yellow_auto.png')
+yellow_auto = pygame.transform.scale(yellow_auto, (50,50))
+
+
+
+#Sounds
+
+poor_sfx = pygame.mixer.Sound('Assets\Sounds\incorrect_ding.mp3')

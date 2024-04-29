@@ -19,6 +19,13 @@ class World:
         self.lock_100 = button.Button(30,235, lock_100)
         self.lock_250 = button.Button(30,335, lock_250)
 
+        #Auto Buttons
+        self.auto_black = button.Button(30, 600, white_auto)
+        self.auto_green = button.Button(90, 600, green_auto)
+        self.auto_red = button.Button(150, 600, red_auto)
+        self.auto_blue = button.Button(210, 600, blue_auto)
+        self.auto_yellow = button.Button(270, 600, yellow_auto)
+
 
         #Progress bar values.
         self.draw_black = False
@@ -42,7 +49,12 @@ class World:
         self.blue_speed = 0.625
         self.yellow_speed = 0.3125
 
+
+        #Locks for higher tier coins
         self.unlock_20 = False
+        self.unlock_50 = False
+        self.unlock_100 = False
+        self.unlock_250 = False
 
         self.coins = 0 #Playeres current coins.
         self.value = 0 #The values that coins have
@@ -76,8 +88,15 @@ class World:
         self.display_surface.fill('grey') #Window Colour
 
         #Player Coin Count
-        self.score_text = default_font.render(f'Coins: {self.coins}', True, 'Black')
-        self.display_surface.blit(self.score_text, (1025,25))
+        score_text = default_font.render(f'Coins: {self.coins}', True, 'Black')
+        self.display_surface.blit(score_text, (675,25))
+
+        #Titles
+        auto_text = default_font.render('Auto Upgrade - 100 coins Each', True, 'Black')
+        self.display_surface.blit(auto_text,(30,550))
+
+        power_text = default_font.render('Power Up - 200 coins Each', True, 'Black')
+        self.display_surface.blit(power_text,(30,670))
 
         #Buttons
         if self.coin_one.draw(self.display_surface): 
@@ -114,14 +133,42 @@ class World:
             if self.lock_20.draw(self.display_surface):
                 if self.coins >= 20:
                     self.unlock_20 = True
-                else:
-                    pass
+                    self.coins -= 20
 
-        if self.lock_50.draw(self.display_surface): 
+        
+        if self.unlock_50 == False:
+            if self.lock_50.draw(self.display_surface):
+                if self.coins >= 50:
+                    self.unlock_50 = True
+                    self.coins -= 50
+
+        if self.unlock_100 == False:
+            if self.lock_100.draw(self.display_surface):
+                if self.coins >= 100:
+                    self.unlock_100 = True
+                    self.coins -= 100
+
+        if self.unlock_250 == False:
+            if self.lock_250.draw(self.display_surface):
+                if self.coins >= 250:
+                    self.unlock_250 = True
+                    self.coins -= 250
+
+
+        #auto Buttons
+
+        if self.auto_black.draw(self.display_surface):
             pass
 
-        if self.lock_100.draw(self.display_surface): 
+        if self.auto_green.draw(self.display_surface):
             pass
 
-        if self.lock_250.draw(self.display_surface): 
+        if self.auto_red.draw(self.display_surface):
             pass
+
+        if self.auto_blue.draw(self.display_surface):
+            pass
+
+        if self.auto_yellow.draw(self.display_surface):
+            pass
+

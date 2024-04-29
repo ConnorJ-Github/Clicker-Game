@@ -15,7 +15,7 @@ class Game:
 
     def run(self):
         while True:
-            fps = self.clock.tick() / 1000
+            FPS = self.clock.tick() / 1000
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.QUIT()
