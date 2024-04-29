@@ -36,3 +36,17 @@ coin4_img = pygame.transform.scale(coin4_img, (75,75))
 coin5_img = pygame.image.load('Assets\Coin_Buttons\Info_Coin_5.png')
 coin5_img = pygame.transform.scale(coin5_img, (75,75))
 
+
+#Lock Images
+lock_20 = pygame.image.load('Assets\Locks\Lock_20.png')
+lock_20 = pygame.transform.scale(lock_20, (500,280))
+
+lock_50 = pygame.image.load('Assets\Locks\Lock_50.png')
+lock_50 = pygame.transform.scale(lock_50, (500,280))
+
+lock_100 = pygame.image.load('Assets\Locks\Lock_100.png')
+lock_100 = pygame.transform.scale(lock_100, (500,280))
+
+lock_250 = pygame.image.load('Assets\Locks\Lock_250.png')
+lock_250 = pygame.transform.scale(lock_250, (500,280))
+

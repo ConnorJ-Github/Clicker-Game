@@ -12,8 +12,12 @@ class World:
         self.coin_four = button.Button(30,325,coin4_img)
         self.coin_five = button.Button(30,425,coin5_img)
 
-        self.coins = 0 #Playeres current coins.
-        self.value = 0 #The values that coins have
+
+        #Unlock Buttons
+        self.lock_20 = button.Button(30, 25, lock_20)
+        self.lock_50 = button.Button(30,130, lock_50)
+        self.lock_100 = button.Button(30,235, lock_100)
+        self.lock_250 = button.Button(30,335, lock_250)
 
 
         #Progress bar values.
@@ -32,11 +36,16 @@ class World:
 
         #pygame CE is used, so if you are experiencing errors here. That may be why.
         #Speed at which progress is earned. 
-        self.black_speed = 0.2
-        self.green_speed = 0.1
-        self.red_speed = 0.07
-        self.blue_speed = 0.04
-        self.yellow_speed = 0.03
+        self.black_speed = 5
+        self.green_speed = 2.5
+        self.red_speed = 1.25
+        self.blue_speed = 0.625
+        self.yellow_speed = 0.3125
+
+        self.unlock_20 = False
+
+        self.coins = 0 #Playeres current coins.
+        self.value = 0 #The values that coins have
 
 
 
@@ -91,10 +100,28 @@ class World:
             self.draw_yellow = True
             self.value = 50
 
-
         #Progress bars
         self.black_length, self.draw_black = self.draw_bars('black', 35, self.draw_black, self.black_length, self.black_speed)
         self.green_length, self.draw_green = self.draw_bars('green', 135, self.draw_green, self.green_length, self.green_speed)
         self.red_length, self.draw_red = self.draw_bars('red', 235, self.draw_red, self.red_length, self.red_speed)
         self.blue_length , self.draw_blue = self.draw_bars('blue', 335, self.draw_blue, self.blue_length, self.blue_speed)
         self.yellow_length,self.draw_yellow = self.draw_bars('yellow', 435, self.draw_yellow, self.yellow_length, self.yellow_speed)
+
+
+        #Unlock Buttons
+
+        if self.unlock_20 == False:
+            if self.lock_20.draw(self.display_surface):
+                if self.coins >= 20:
+                    self.unlock_20 = True
+                else:
+                    pass
+
+        if self.lock_50.draw(self.display_surface): 
+            pass
+
+        if self.lock_100.draw(self.display_surface): 
+            pass
+
+        if self.lock_250.draw(self.display_surface): 
+            pass
