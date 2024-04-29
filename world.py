@@ -1,6 +1,13 @@
 from settings import *
 import button
 
+#Bugs List
+
+#coin value overwrites upon starting a different button
+#Button overlapping (As the buttons are circles and the button selection area are rect. The selection area is larger than needed)
+#Automatic buttons don't work sometimes.
+#Buttons increasing in speed upon unlocking a new button
+
 class World:
     def __init__(self):
         self.display_surface = pygame.display.get_surface()
