@@ -2,7 +2,7 @@
  
 Requires Pygame CE + Python to Run
 
-![python_0tQuzNtpfi](https://github.com/ConnorJ-Github/Clicker-Game/assets/149539076/990b7bec-87fd-4cd3-b623-a852bce26bd5)
+![NVIDIA_Share_uR53eeV7Ct](https://github.com/ConnorJ-Github/Clicker-Game/assets/149539076/fb10ae8a-83cb-477d-8e9b-94669714db01)
 
 **How to play**
 
