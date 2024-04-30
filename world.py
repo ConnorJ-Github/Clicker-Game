@@ -112,7 +112,7 @@ class World:
 
         #Player Coin Count
         score_text = default_font.render(f'Coins: {self.coins}', True, 'Black')
-        self.display_surface.blit(score_text, (675,25))
+        self.display_surface.blit(score_text, (600,25))
 
         #Titles
         auto_text = default_font.render('Auto Upgrade - 1000 Each', True, 'Black')
@@ -124,23 +124,18 @@ class World:
         #Buttons
         if self.coin_one.draw(self.display_surface): 
             self.draw_black = True
-            self.value = 1
 
         if self.coin_two.draw(self.display_surface): 
             self.draw_green = True
-            self.value = 5
 
         if self.coin_three.draw(self.display_surface): 
             self.draw_red = True
-            self.value = 10
 
         if self.coin_four.draw(self.display_surface): 
             self.draw_blue = True
-            self.value = 20
 
         if self.coin_five.draw(self.display_surface): 
             self.draw_yellow = True
-            self.value = 50
 
         #Progress bars
         self.black_length, self.draw_black = self.draw_bars('black', 35, self.black_value, self.draw_black, self.black_length, self.black_speed)
