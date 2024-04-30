@@ -79,7 +79,7 @@ class World:
         self.unlock_100 = False
         self.unlock_250 = False
 
-        self.coins = 1000 #Playeres current coins.
+        self.coins = 0 #Playeres current coins.
 
 
 
