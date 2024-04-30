@@ -82,22 +82,6 @@ class World:
         self.coins = 1000 #Playeres current coins.
 
 
-        if self.automatic_black:
-            self.draw_black = True
-
-        if self.automatic_green:
-            self.draw_green = True
-
-        if self.automatic_red:
-            self.draw_green = True
-
-        if self.automatic_blue:
-            self.draw_blue = True
-
-        if self.automatic_yellow:
-            self.draw_yellow = True
-
-
 
 
     def draw_bars(self, colour, y_offset, value, draw, length, speed):
