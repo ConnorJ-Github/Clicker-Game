@@ -17,6 +17,14 @@ class World:
         self.coin_four = button.Button(30,325,coin4_img)
         self.coin_five = button.Button(30,425,coin5_img)
 
+        #Coin values 
+
+        self.black_value = 1
+        self.green_value = 5
+        self.red_value = 10
+        self.blue_value = 20
+        self.yellow_value = 50
+
         #Unlock Buttons
         self.lock_20 = button.Button(30, 25, lock_20)
         self.lock_50 = button.Button(30,130, lock_50)
@@ -72,18 +80,18 @@ class World:
         self.unlock_250 = False
 
         self.coins = 100 #Playeres current coins.
-        self.value = 0 #The values that coins have
 
 
 
-    def draw_bars(self, colour, y_offset, draw, length, speed):
+
+    def draw_bars(self, colour, y_offset, draw, value, length, speed):
 
         if draw and length < 400:
             length += speed
         elif length >= 400:
             draw = False
             length = 0
-            self.coins += self.value
+            self.coins += value
 
 
         pygame.draw.rect(self.display_surface, colour, [120, y_offset, 400,50 ])
@@ -135,11 +143,11 @@ class World:
             self.value = 50
 
         #Progress bars
-        self.black_length, self.draw_black = self.draw_bars('black', 35, self.draw_black, self.black_length, self.black_speed)
-        self.green_length, self.draw_green = self.draw_bars('green', 135, self.draw_green, self.green_length, self.green_speed)
-        self.red_length, self.draw_red = self.draw_bars('red', 235, self.draw_red, self.red_length, self.red_speed)
-        self.blue_length , self.draw_blue = self.draw_bars('blue', 335, self.draw_blue, self.blue_length, self.blue_speed)
-        self.yellow_length,self.draw_yellow = self.draw_bars('yellow', 435, self.draw_yellow, self.yellow_length, self.yellow_speed)
+        self.black_length, self.draw_black = self.draw_bars('black', 35, self.black_value, self.draw_black, self.black_length, self.black_speed)
+        self.green_length, self.draw_green = self.draw_bars('green', 135,self.green_value, self.draw_green, self.green_length, self.green_speed)
+        self.red_length, self.draw_red = self.draw_bars('red', 235, self.red_value, self.draw_red, self.red_length, self.red_speed)
+        self.blue_length , self.draw_blue = self.draw_bars('blue', 335, self.blue_value, self.draw_blue, self.blue_length, self.blue_speed)
+        self.yellow_length, self.draw_yellow = self.draw_bars('yellow', 435, self.yellow_value, self.draw_yellow, self.yellow_length, self.yellow_speed)
 
 
         #Unlock Buttons
@@ -169,21 +177,26 @@ class World:
         #auto Buttons
 
         if self.auto_black.draw(self.display_surface):
-            pass
+            self.draw_black = True
+            self.coins -= 1000
         
 
         if self.auto_green.draw(self.display_surface):
-            pass
+            self.draw_green = True
+            self.coins -= 1000
 
 
         if self.auto_red.draw(self.display_surface):
-            pass
+            self.draw_red = True
+            self.coins -= 1000
 
         if self.auto_blue.draw(self.display_surface):
-            pass
+            self.draw_blue = True
+            self.coins -= 1000
 
         if self.auto_yellow.draw(self.display_surface):
-            pass
+            self.draw_yellow = True
+            self.coins -= 1000
 
 
         #power up buttons
