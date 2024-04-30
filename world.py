@@ -84,7 +84,7 @@ class World:
 
 
 
-    def draw_bars(self, colour, y_offset, draw, value, length, speed):
+    def draw_bars(self, colour, y_offset, value, draw, length, speed):
 
         if draw and length < 400:
             length += speed
@@ -139,7 +139,7 @@ class World:
 
         #Progress bars
         self.black_length, self.draw_black = self.draw_bars('black', 35, self.black_value, self.draw_black, self.black_length, self.black_speed)
-        self.green_length, self.draw_green = self.draw_bars('green', 135,self.green_value, self.draw_green, self.green_length, self.green_speed)
+        self.green_length, self.draw_green = self.draw_bars('green', 135, self.green_value, self.draw_green, self.green_length, self.green_speed)
         self.red_length, self.draw_red = self.draw_bars('red', 235, self.red_value, self.draw_red, self.red_length, self.red_speed)
         self.blue_length , self.draw_blue = self.draw_bars('blue', 335, self.blue_value, self.draw_blue, self.blue_length, self.blue_speed)
         self.yellow_length, self.draw_yellow = self.draw_bars('yellow', 435, self.yellow_value, self.draw_yellow, self.yellow_length, self.yellow_speed)
