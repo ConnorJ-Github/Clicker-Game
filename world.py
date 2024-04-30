@@ -3,13 +3,8 @@ import button
 
 #Bugs List
 
-#coin value overwrites upon starting a different button
-
 #Button overlapping (As the buttons are circles and the button selection area are rect. The selection area is larger than needed)
 #Bug caused by issue above - Buttons will unlock due to proxy when funds are met.
-
-#Automatic buttons don't work sometimes.
-#Buttons increasing in speed upon unlocking a new button
 
 class World:
     def __init__(self):
@@ -21,7 +16,6 @@ class World:
         self.coin_three = button.Button(30,225,coin3_img)
         self.coin_four = button.Button(30,325,coin4_img)
         self.coin_five = button.Button(30,425,coin5_img)
-
 
         #Unlock Buttons
         self.lock_20 = button.Button(30, 25, lock_20)
@@ -202,8 +196,7 @@ class World:
             self.yellow_speed = self.yellow_speed * 2
             self.coins -= 500
 
-        if self.power_two.draw(self.display_surface):
-            if self.coins >= 1:
+        if self.power_two.draw(self.display_surface) and self.coins >= 500:
                 self.coins *= 2
                 self.coins -= 500
 
