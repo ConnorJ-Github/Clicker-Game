@@ -79,7 +79,23 @@ class World:
         self.unlock_100 = False
         self.unlock_250 = False
 
-        self.coins = 100 #Playeres current coins.
+        self.coins = 1000 #Playeres current coins.
+
+
+        if self.automatic_black:
+            self.draw_black = True
+
+        if self.automatic_green:
+            self.draw_green = True
+
+        if self.automatic_red:
+            self.draw_green = True
+
+        if self.automatic_blue:
+            self.draw_blue = True
+
+        if self.automatic_yellow:
+            self.draw_yellow = True
 
 
 
@@ -92,6 +108,7 @@ class World:
             draw = False
             length = 0
             self.coins += value
+            
 
 
         pygame.draw.rect(self.display_surface, colour, [120, y_offset, 400,50 ])
@@ -172,26 +189,40 @@ class World:
         #auto Buttons
 
         if self.auto_black.draw(self.display_surface):
-            self.draw_black = True
+            self.automatic_black = True
             self.coins -= 1000
-        
+
+        if self.automatic_black:
+            self.draw_black = True
 
         if self.auto_green.draw(self.display_surface):
-            self.draw_green = True
+            self.automatic_green = True
             self.coins -= 1000
+
+        if self.automatic_green:
+            self.draw_green = True
 
 
         if self.auto_red.draw(self.display_surface):
-            self.draw_red = True
+            self.automatic_red = True
             self.coins -= 1000
+
+        if self.automatic_red:
+            self.draw_red = True
 
         if self.auto_blue.draw(self.display_surface):
-            self.draw_blue = True
+            self.automatic_blue = True
             self.coins -= 1000
 
+        if self.automatic_blue:
+            self.draw_blue = True
+
         if self.auto_yellow.draw(self.display_surface):
-            self.draw_yellow = True
+            self.automatic_yellow = True
             self.coins -= 1000
+
+        if self.automatic_yellow:
+            self.draw_yellow = True
 
 
         #power up buttons
